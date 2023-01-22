@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ItemGenerator</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3374/3374550.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+          integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            font-family: "Trirong", serif;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1027%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='%230e2a47'%3e%3c/rect%3e%3cpath d='M226.37509336547362 158.16154822112082L115.95501518900386 68.74513196967119 26.53859893755424 179.16521014614096 136.958677114024 268.5816263975906z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M456.93573125212174 315.1551520014282L517.0304090159658 438.3675006791077 580.1480799298013 255.0604742375841z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M359.2000641529195 326.202429384575L499.89467729285894 314.0283457792243 430.86299461992803 211.68466745757982z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M563.2013876821818 140.55558432987968L630.4172919998111 185.89328425938626 664.8158897352564 62.400577818188914z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M1291.172%2c288.271C1331.898%2c287.651%2c1374.809%2c279.701%2c1396.825%2c245.433C1420.429%2c208.694%2c1421.014%2c159.824%2c1397.222%2c123.206C1375.134%2c89.21%2c1331.713%2c83.042%2c1291.172%2c82.822C1250.103%2c82.6%2c1206.003%2c87.946%2c1183.113%2c122.046C1157.878%2c159.639%2c1155.121%2c210.774%2c1179.798%2c248.735C1202.811%2c284.135%2c1248.954%2c288.913%2c1291.172%2c288.271' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M151.697%2c639.917C201.854%2c639.272%2c245.616%2c609.114%2c270.962%2c565.828C296.606%2c522.035%2c300.374%2c469.587%2c278.15%2c423.963C252.636%2c371.585%2c209.936%2c319.35%2c151.697%2c320.988C95%2c322.583%2c62.474%2c380.072%2c36.992%2c430.745C14.749%2c474.977%2c3.192%2c525.555%2c26.998%2c568.966C51.644%2c613.909%2c100.444%2c640.576%2c151.697%2c639.917' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M132.52259592594973 292.3090570235844L158.21580620581773 171.43200633175587 37.33875551398921 145.73879605188787 11.645545234121215 266.61584674371636z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M-55.03127232302584 262.92181562746345L67.07081959264664 291.2338999439785 36.86973179483964 185.9101901381988z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M486.9197484952405 160.28124198751777L522.3210026011337 7.6055458274006185 390.62489105646694 45.36879813521119z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M460.626%2c378.697C476.728%2c378.458%2c486.982%2c363.705%2c495.335%2c349.937C504.156%2c335.397%2c514.634%2c318.353%2c506.192%2c303.59C497.719%2c288.775%2c477.649%2c288.022%2c460.626%2c289.243C446.079%2c290.286%2c432.558%2c296.853%2c425.131%2c309.404C417.561%2c322.196%2c417.306%2c337.767%2c424.083%2c350.996C431.552%2c365.577%2c444.245%2c378.94%2c460.626%2c378.697' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1062.7982796597344 210.24614652584063L1186.0130710161948 338.0823838193196 1231.391086202337 189.65758402611337z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M903.4230997281198 331.10508812819285L808.1016530414153 347.9128310192224 880.9739907213118 482.49112960376453z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M1076.6508640598463 472.5259241945422L973.689330125573 502.04966896084403 1003.2130748918747 605.0112028951173 1106.1746088261482 575.4874581288155z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M1029.959%2c315.059C1075.639%2c313.98%2c1116.534%2c287.368%2c1138.399%2c247.246C1159.354%2c208.794%2c1156.118%2c162.36%2c1133.662%2c124.765C1111.798%2c88.16%2c1072.597%2c65.651%2c1029.959%2c65.696C987.399%2c65.741%2c949.313%2c88.969%2c926.634%2c124.983C902.188%2c163.803%2c890.362%2c212.279%2c912.272%2c252.585C935.007%2c294.408%2c982.369%2c316.183%2c1029.959%2c315.059' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M517.2152331944408 255.25691931330473L449.7759937049996 294.19298238647724 541.8997080594789 375.88381008405275z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1027'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e");
+            background-image: no-repeat;
+        }
+
+        nav {
+            margin: 10px;
+        }
+
+        #myForm {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            margin-top: 7%;
+        }
+
+        #name:invalid:focus {
+            animation: shake 300ms;
+        }
+
+        @keyframes shake {
+            25% {
+                transform: translateX(10px);
+            }
+
+            50% {
+                transform: translateX(-10px);
+            }
+
+            75% {
+                transform: translateX(10px);
+            }
+        }
+
+        .category,
+        .activity {
+            width: 150px;
+        }
+
+        .points {
+            width: 75px;
+        }
+
+        @media (max-width: 768px) {
+
+            .category,
+            .activity {
+                width: 100px;
+            }
+
+            .points {
+                width: 62px;
+            }
+
+            ::placeholder {
+                font-size: 12px;
+            }
+        }
+
+        @media (min-width: 1400px) {
+
+            .category,
+            .activity {
+                width: 200px;
+            }
+
+            .points {
+                width: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar bg-light rounded-3 shadow-lg p-2 mb-5 bg-body">
+        <div class="container-fluid" onClick="window.location.reload();">
+            <a class="navbar-brand" href="">
+                <i class="fa-solid fa-cog fa-spin" style="--fa-animation-duration: 10s;  color: royalblue"></i>
+                ItemGenerator
+            </a>
+        </div>
+    </nav>
+
+    <form id="myForm" action="/" method="post">
+        <div id="products">
+            <p for="name" style="margin-bottom: 5px; color:white"><strong>What should your plan be called?</strong></p>
+            <input class="form-control rounded-3" type="text" placeholder="Plan's name" name="name" id="name" />
+            <br /><br />
+            <p style="margin-bottom: 5px; color:white"><strong>Entries:</strong></p>
+            <div class="input-group1">
+                <input class="category form-control rounded-3" type="text" placeholder="Category" name="category_1"
+                       id="category_1" style="margin-right:4px; float: left" />
+                <input class="activity form-control rounded-3" type="text" placeholder="Activity" name="activity_1"
+                       id="activity_1" style="margin-right: 4px; float: left" />
+                <input class="points form-control rounded-3" type="text" placeholder="Points" name="points_1"
+                       id="points_1" style=" margin-bottom:10px" />
+            </div>
+        </div>
+        <br />
+        <br />
+        <div>
+            <button id="add_item" type="button" class="btn btn-outline-success shadow-lg rounded-3">
+                <i class="fas fa-plus"></i>
+            </button>
+            <button id="remove" type="button" class="btn btn-outline-danger shadow-lg rounded-3" style="margin-right:15px">
+                <i class="fas fa-trash"></i>
+            </button>
+        </div>
+        <br />
+        <br />
+        <div>
+            <input class="btn btn-outline-warning shadow-lg rounded-3" id="submit1" type="submit" name="submit" value="JSON">
+            <input class="btn btn-outline-warning shadow-lg rounded-3" id="submit2" type="submit" name="submit" value="Python">
+        </div><br />
+        <div>
+            <input class="btn btn-outline-warning shadow-lg rounded-3" id="submit3" type="submit" name="submit" value="SQL">
+        </div>
+    </form>
+
+    <script>
+        //Adding new rows dynamically
+        var count_item = 1;
+        $(document).ready(function () {
+            $("#add_item").on("click", function () {
+                count_item += 1;
+                $("<div/>").addClass("input-group" + count_item).appendTo("#products");
+                $("<input/>").attr({
+                    type: "text", placeholder: "Category", class: "category form-control rounded-3",
+                    name: "category_" + count_item, id: "category_" + count_item
+                }).css({ "margin-right": "4px", "float": "left" }).appendTo(".input-group" + count_item);
+                $("<input/>").attr({
+                    type: "text", placeholder: "Activity", class: "activity form-control rounded-3",
+                    name: "activity_" + count_item, id: "activity_" + count_item
+                }).css({ "margin-right": "4px", "float": "left" }).appendTo(".input-group" + count_item);
+                $("<input/>").attr({
+                    type: "text", placeholder: "Points", class: "points form-control rounded-3",
+                    name: "points_" + count_item, id: "points_" + count_item
+                }).css({ "margin-bottom": "10px" }).appendTo(".input-group" + count_item);
+            });
+        });
+
+        //removing last row dynamically
+        $("#remove").click(function () {
+            var numInputFields = $("#products").find("input").length;
+            if (numInputFields <= 4) {
+                alert("Minimal number of rows is 1")
+            }
+            else {
+                for (let i = 0; i < 3; i++) {
+                    $("#products").find("input:last").remove();
+                }
+                if (count_item > 0) {
+                    $(".input-group" + count_item).remove();
+                }
+                count_item -= 1;
+            }
+        });
+
+        //set name of plan to required when user clicks Python or SQL
+        $("input").click(function () {
+            if (this.id === "submit2" || this.id === "submit3") {
+                $("#name").attr("required", "true");
+            } else {
+                $("#name").removeAttr("required");
+            }
+        });
+    </script>
+</body>
+
+</html>
